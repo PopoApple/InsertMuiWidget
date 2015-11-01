@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+		<link href="../css/mui.css" rel="stylesheet"/>
+		<link href="../css/muix.css" rel="stylesheet"/>
+		<link href="../css/style.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<div class="mui-content">
+			<div class="mui-scroll-wrapper">
+				<div class="mui-scroll">
+					<ul class="mui-table-view">
+						<li class="mui-table-view-cell">项目 1</li>
+						<li class="mui-table-view-cell">项目 2</li>
+						<li class="mui-table-view-cell">项目 3</li>
+						<li class="mui-table-view-cell">项目 4</li>
+						<li class="mui-table-view-cell">项目 5</li>
+						<li class="mui-table-view-cell">项目 6</li>
+						<li class="mui-table-view-cell">项目 7</li>
+						<li class="mui-table-view-cell">项目 8</li>
+						<li class="mui-table-view-cell">项目 9</li>
+						<li class="mui-table-view-cell">项目 10</li>
+						<li class="mui-table-view-cell">项目 11</li>
+						<li class="mui-table-view-cell">项目 12</li>
+						<li class="mui-table-view-cell">项目 13</li>
+						<li class="mui-table-view-cell">项目 14</li>
+						<li class="mui-table-view-cell">项目 15</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script src="../js/mui.js"></script>
+	    <script src="../js/muix.js"></script>
+		<script src="../js/mui.pullToRefresh.js" data-temp></script>
+		<script>
+			(function($) {
+				var cnt = 0;
+				$(document.querySelector('.mui-scroll')).pullToRefresh({
+					down: {
+						callback: function() {
+							var self = this;
+							setTimeout(function() { //为了演示效果，用setTimeout模拟加载延时，实际使用时为异步请求数据的方法
+								self.endPullDownToRefresh();
+							}, 1000);
+						}
+					},
+					up: {
+						callback: function() {
+							var self = this;
+							setTimeout(function() { //为了演示效果，用setTimeout模拟加载延时，实际使用时为异步请求数据的方法
+								var list = document.querySelector('ul');
+								var li = document.createElement('li');
+								li.classList.add('mui-table-view-cell');
+								li.innerHTML = '新增项目'+(++cnt);
+								list.appendChild(li);
+								self.endPullUpToRefresh();
+							}, 1000);
+						}
+					}
+				});
+			})(mui);
+		</script>
+	</body>
+</html>

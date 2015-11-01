@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery Mobile Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="../jquery.mobile-1.4.4.min.css"/>
+    <link rel="stylesheet" href="../codeDivStyle.css"/>
+    <script src="../jquery-1.9.1.min.js"></script>
+    <script src="../jquery.mobile-1.4.4.min.js"></script>
+    <style>
+<!-- css -->
+    </style>
+    <script>
+/* script */
+    </script>
+  </head>
+  <body>
+      <div id="codeBox"></div>
+      <div class="ui-content">
+<a href="#popupNested" data-rel="popup" data-transition="flip" class="ui-btn ui-btn-b ui-corner-all ui-shadow ui-btn-inline ui-icon-bars ui-btn-icon-left" data-transition="pop">打开目录</a> 
+<div data-role="popup" id="popupNested" data-theme="b">
+    <div data-role="collapsibleset" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" style="margin:0; width:250px;">
+        <div data-role="collapsible">
+            <h2>分类1</h2>
+            <ul data-role="listview">
+                <li><a href="#">项目1</a></li>
+                <li><a href="#">项目2</a></li>
+                <li><a href="#">项目3</a></li>
+            </ul>
+        </div>
+        <div data-role="collapsible">
+            <h2>分类2</h2>
+            <ul data-role="listview">
+                <li><a href="#">项目1</a></li>
+                <li><a href="#">项目2</a></li>
+            </ul>
+        </div>
+        <div data-role="collapsible">
+            <h2>分类3</h2>
+            <ul data-role="listview">
+                <li><a href="#">项目1</a></li>
+                <li><a href="#">项目2</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+      </div>
+  </body>
+</html>

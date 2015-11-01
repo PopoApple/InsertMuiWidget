@@ -1,0 +1,191 @@
+#imuiw-btn:link {
+	opacity: .6;
+}
+#imuiw-btn-holder{
+    margin:10px 0 -7px 5px;
+}
+#imuiw-btn {
+	height: 24px;
+	width: 24px;
+	display: inline-block;
+	background-image: url("img/logo.jpg");
+    background-size: 75% 75%;
+    background-repeat:  no-repeat;
+}
+#imuiw-btn:hover{
+    background-image: url("img/logoAct.jpg");  
+    opacity: 1;
+}
+#imuiw-panel {
+	position: relative;
+}
+#panel-body{
+    margin:10px;
+}
+#imuiw-panel .mui-table-view{
+    background: #fff;
+}
+#imuiw-panel .mui-table-view,.mui-table-view-cell{
+    margin:0;
+    padding:0;
+}
+#imuiw-panel .mui-table-view-cell{
+    position:relative;
+    list-style: none;
+    display:block;
+}
+#imuiw-panel .mui-table-view-cell:first-child{
+    padding:1px 0 0 0;
+}
+#imuiw-panel .mui-table-view-cell .mui-table-view-cell:last-child:after{
+    height:0;
+}
+#imuiw-panel .mui-table-view-cell:first-child:before{
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    height: 1px;
+    transform: scaleY(.5);
+    background-color: #c8c7cc;
+}
+#imuiw-panel .mui-table-view-cell:after{
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    transform: scaleY(.5);
+    background-color: #c8c7cc;
+    z-index: 100;
+}
+#imuiw-panel .mui-table-view-cell .mui-table-view-cell:before,
+#imuiw-panel .mui-table-view-cell .mui-table-view-cell:after{
+    right: -12px;
+}
+#imuiw-panel .mui-table-view-cell .mui-table-view-cell:first-child:before{
+    left:-12px;
+}
+#imuiw-panel .mui-table-view-cell .mui-table-view-cell > a{
+    padding-left:30px;
+}
+#imuiw-panel .mui-table-view-cell a{
+    text-decoration: none;
+    padding:11px 15px;
+    display:block;
+    position: relative;
+}
+#imuiw-panel .mui-table-view-cell a:after{
+    content:'';
+    width:20px;
+    height:20px;
+    position: absolute;
+    top:10px;
+    right:10px;
+    background-image: url(img/arrow-right.png);
+    background-size:100% 100%;
+    opacity: .8;
+}
+#imuiw-panel .mui-table-view a,#imuiw-panel .mui-table-view a:link,#imuiw-panel .mui-table-view a:hover,#imuiw-panel .mui-table-view a:visited{
+    color:black;
+}
+#imuiw-panel .mui-table-view a:hover{
+    background:rgb(242,242,242);
+}
+#imuiw-panel .mui-table-view-cell.mui-collapse > .mui-table-view{
+    display:none;
+}
+#imuiw-panel .mui-table-view-cell.mui-collapse.mui-active > .mui-table-view{
+    display:block;
+}
+#imuiw-panel .mui-table-view-cell.mui-collapse.mui-active > a:after{
+    background-image: url(img/arrow-top.png);
+    opacity: .8;
+}
+#imuiw-panel .mui-table-view-cell > a.active{
+    background:#ededed;
+}
+#imuiw-panel-nav, #imuiw-panel-tabs{
+    position: absolute;
+    top:25px;
+    bottom:0;
+    overflow-y: auto;
+}
+#imuiw-panel-nav{
+    left:0;
+    width:170px;
+    overflow-x: hidden;
+    background: #FFF;
+}
+#imuiw-panel-tabs{
+    left:170px;
+}
+#imuiw-panel .showhide-tab{
+    display:none;
+}
+#imuiw-panel  .block{
+    position:relative;
+}
+#imuiw-panel .subpage-loading{
+    position: absolute;
+    top:50%;
+    left:50%;
+    margin-left:-12px;
+    margin-top:-30px;
+}
+#imuiw-panel .clearfix:before, .clearfix:after{
+    display: table;
+    content: ' ';
+}
+#imuiw-panel .clearfix:after{
+    clear: both;
+}
+#imuiw-panel h3{
+	margin:10px 0;
+}
+#imuiw-panel h5{
+	margin:5px 0 8px 0;
+    font-size: 14px;
+    color: #8f8f94;
+}
+#imuiw-panel .insert-btn{
+    font-size:14px;
+    font-family: '黑体';
+    position: absolute;
+    top:0;
+    right:0;
+    background:transparent;
+    color:#999;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    padding:5px;
+    -webkit-user-select: none;
+    outline:none; 
+}
+#imuiw-panel .insert-btn:hover{
+    background:#333;
+    color:#fff;
+}
+#imuiw-panel .insert-btn:active{
+    background:#000;
+    color:#fff;
+}
+#imuiw-panel .block{
+	float:left;
+	margin: 5px;
+	width:300px;
+	height:220px;
+}
+#imuiw-panel iframe{
+	width:100%;
+	height:190px;
+	border:none;
+	box-shadow: 0 1px 5px rgba(0,0,0,0.5);
+	background: #efeff4;
+}
+
+
+

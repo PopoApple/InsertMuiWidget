@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../css/mui.css" rel="stylesheet"/>
+		<link href="../css/muix.css" rel="stylesheet"/>
+		<link href="../css/mui.picker.all.css" rel="stylesheet" data-temp />
+		<link href="../css/style.css" rel="stylesheet"/>
+		<style>
+			.mui-table-view .mui-input-row:after {
+			  position: absolute;
+			  right: 0;
+			  bottom: 0;
+			  left: 15px;
+			  height: 1px;
+			  content: '';
+			  -webkit-transform: scaleY(.5);
+			  transform: scaleY(.5);
+			  background-color: #c8c7cc;
+			}
+			.mui-button-row {
+			  height: 45px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				
+				<li class="mui-table-view-cell">
+					<a id="pickerBtn" class="mui-navigate-right">选择器<span id="pickerText" class="mui-ellipsis mui-pull-right mui-text-right" style="width:65%;padding-right:22px;color:#999;">请选择</span></a>
+				</li>
+				
+			</ul>
+		</div>
+		<script src="../js/mui.js"></script>
+		<script src="../js/muix.js"></script>
+		<script src="../js/mui.picker.all.js"></script>
+		<script>
+		mui.ready(function() {
+			var picker = new mui.PopPicker();
+				picker.setData([{
+					value: '',
+					text: '选项 1'
+				}, {
+					value: '',
+					text: '选项 2'
+				}, {
+					value: '',
+					text: '选项 3'
+				}]);
+			document.getElementById('pickerBtn').addEventListener('tap', function(event) {
+				picker.show(function(items) {
+					document.getElementById('pickerText').innerHTML = items[0].text;
+				});
+			}, false);
+		});
+		</script>
+	</body>
+</html>

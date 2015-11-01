@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery Mobile Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="../jquery.mobile-1.4.4.min.css"/>
+    <link rel="stylesheet" href="../codeDivStyle.css"/>
+    <script src="../jquery-1.9.1.min.js"></script>
+    <script src="../jquery.mobile-1.4.4.min.js"></script>
+    <style>
+.footer-button-left,
+.footer-button-right {
+    position: absolute; 
+    margin: 0;
+    top: auto;
+    bottom: 0.24em;
+}
+.footer-button-left {
+    left: 0.4em;
+}
+.footer-button-right {
+    right: 0.4em;
+}
+    </style>
+    <script>
+/* script */
+    </script>
+  </head>
+  <body>
+      <div id="codeBox"></div>
+<!-- 页面1 开始 -->
+<div data-role="page" id="page1">
+    <div data-role="header" data-position="fixed">
+        <h1>页面1</h1>
+        <a href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear ui-btn-icon-notext">Options</a> 
+    </div>
+    <div role="main" class="ui-content">
+        <!--<p>页面1内容</p>-->
+    </div>
+    <div data-role="footer" data-position="fixed">
+        <span class="ui-title"></span>
+        <a href="#" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-power">退出</a>
+		<a href="#page2" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-right ui-btn-icon-right ui-icon-carat-r">下一页</a>
+    </div>
+</div>
+<!-- 页面1 结束 -->
+<!-- 页面2 开始 -->
+<div data-role="page" id="page2">
+    <div data-role="header" data-position="fixed">
+        <h1>页面2</h1>
+        <a href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-right ui-icon-gear ui-btn-icon-notext">Options</a>
+    </div>
+    <div role="main" class="ui-content">
+        <!--<p>页面2内容</p>-->
+    </div>
+    <div data-role="footer" data-position="fixed">
+        <span class="ui-title"></span>
+		<a href="#page1" class="ui-btn ui-corner-all ui-btn-inline ui-mini footer-button-left ui-btn-icon-left ui-icon-carat-l">上一页</a>
+    </div>
+</div>
+<!-- 页面2 结束 -->
+  </body>
+</html>

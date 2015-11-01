@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/muix.css" rel="stylesheet" />
+		<link data-add href="../css/mui.picker.all.css" rel="stylesheet" />
+		<link href="../css/style.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="mui-content mui-content-padded">
+			<button id="pickerBtn" class="mui-btn">
+				<span id="pickerBtnText"></span>
+				<span class="mui-icon mui-icon-arrowdown"></span>
+			</button>
+		</div>
+		<script src="../js/mui.js"></script>
+		<script src="../js/muix.js"></script>
+		<script data-add src="../js/mui.picker.all.js"></script>
+		<script>
+			(function($) {
+				//创建对象，并设置数据
+				var popPicker = new $.PopPicker({
+					layer: 3
+				});
+				popPicker.setData([{
+					value: '',
+					text: '选项 1',
+					children: [{
+						value: '',
+						text: '1',
+						children: [{value: '',text: '1'}, {value: '',text: '2'}]
+					}, {
+						value: '',
+						text: '2',
+						children: [{value: '',text: '1'}, {value: '',text: '2'}, {value: '',text: '3'}]
+					}]
+				}, {
+					value: '',
+					text: '选项 2',
+					children: [{
+						value: '',
+						text: '1',
+						children: [{value: '',text: '1'}]
+					}]
+				}]);
+				//显示选择器，并获取选中值
+				var pickerBtnText = document.getElementById('pickerBtnText');
+				document.getElementById('pickerBtn').addEventListener('tap', function(event) {
+					popPicker.show(function(items) {
+						pickerBtnText.innerHTML = items[0].text + (items[1].text ? '-' + items[1].text : '') + (items[2].text ? '-' + items[2].text : '');
+					});
+				}, false);
+				//设置默认选中项
+				popPicker.pickers[0].setSelectedIndex(0);
+				popPicker.pickers[1].setSelectedIndex(1);
+				popPicker.pickers[2].setSelectedIndex(1);
+				pickerBtnText.innerHTML = '选项 1-2-2';
+			})(mui);
+		</script>
+	</body>
+
+</html>

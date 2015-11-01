@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/muix.css" rel="stylesheet" />
+		<link data-add href="../css/mui.picker.all.css" rel="stylesheet" />
+		<link href="../css/style.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="mui-content mui-content-padded">
+			<button type="button" id="pickerBtn" class="mui-btn">请选择...</button>
+		</div>
+		<script src="../js/mui.js"></script>
+		<script src="../js/muix.js"></script>
+		<script data-add src="../js/mui.picker.all.js"></script>
+		<script>
+			(function($) {
+				//创建对象，并设置数据
+				var popPicker = new $.PopPicker();
+				popPicker.setData([
+					{value: '0',text: '请选择...'}, 
+					{value: '1',text: '选项 1'}, 
+					{value: '2',text: '选项 2'}, 
+					{value: '3',text: '选项 3'}, 
+					{value: '4',text: '选项 4'}, 
+					{value: '5',text: '选项 5'}
+				]);
+				//显示选择器，并获取选中值
+				var pickerBtn = document.getElementById('pickerBtn');
+				pickerBtn.addEventListener('tap', function(event) {
+					popPicker.show(function(items) {
+						pickerBtn.innerHTML = items[0].text;
+					});
+				}, false);
+				//设置默认选中项
+				popPicker.pickers[0].setSelectedIndex(2);
+			})(mui);
+		</script>
+	</body>
+
+</html>

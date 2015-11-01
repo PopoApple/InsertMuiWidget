@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	    <meta charset="utf-8">
+	    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	    <title></title>
+	    <link href="../css/mui.css" rel="stylesheet"/>
+	    <link href="../css/muix.css" rel="stylesheet"/>
+		<link href="../css/style.css" rel="stylesheet"/>
+	    <style>
+	    	/*自定义当前激活状态链接的样式*/
+			.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+				background-color: #fff;
+			}
+	    </style>
+	</head>
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">
+				<div class="mui-input-row mui-search">
+					<input id="search" type="search" class="mui-input-clear" placeholder="">
+				</div>
+			</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-row mui-fullscreen" style="top:44px;bottom:0;height:auto">
+				<div class="mui-col-xs-3" style="overflow-y: auto;height: 100%;">
+					<div class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
+						<a class="mui-control-item mui-active" href="#subPage1" style="line-height: 50px;width: 100%;">链接1</a>
+						<a class="mui-control-item" href="#subPage2" style="line-height: 50px;width: 100%;">链接2</a>
+						<a class="mui-control-item" href="#subPage3" style="line-height: 50px;width: 100%;">链接3</a>
+						<a class="mui-control-item" href="#subPage4" style="line-height: 50px;width: 100%;">链接4</a>
+						<a class="mui-control-item" href="#subPage5" style="line-height: 50px;width: 100%;">链接5</a>
+					</div>
+				</div>
+				<div class="mui-col-xs-9" style="border-left: 1px solid #c8c7cc;height: 100%;">
+					<div id="subPage1" class="mui-control-content mui-active" style="overflow-y: auto;height: 100%;background-color: #fff;">
+						<p class="mui-content-padded">第1个子页面内容。</p>
+					</div>
+					<div id="subPage2" class="mui-control-content" style="overflow-y: auto;height: 100%;background-color: #fff;">
+						<p class="mui-content-padded">第2个子页面内容。</p>
+					</div>
+					<div id="subPage3" class="mui-control-content" style="overflow-y: auto;height: 100%;background-color: #fff;">
+						<p class="mui-content-padded">第3个子页面内容。</p>
+					</div>
+					<div id="subPage4" class="mui-control-content" style="overflow-y: auto;height: 100%;background-color: #fff;">
+						<p class="mui-content-padded">第4个子页面内容。</p>
+					</div>
+					<div id="subPage5" class="mui-control-content" style="overflow-y: auto;height: 100%;background-color: #fff;">
+						<p class="mui-content-padded">第5个子页面内容。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+			<script src="../js/mui.js"></script>
+			<script src="../js/muix.js"></script>
+	</body>
+</html>

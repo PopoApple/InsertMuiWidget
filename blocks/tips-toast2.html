@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/muix.css" rel="stylesheet" />
+		<link href="../css/style.css" rel="stylesheet" />
+		<style data-ignore >
+			.mui-btn{
+				margin:10px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="mui-content">
+			<a id="collectBtn" class="mui-btn mui-btn-blue mui-btn-outlined">收藏</a>
+			<div id="collectToast" class="muix-toast">
+				<span class="mui-icon mui-icon-checkmarkempty" style="color:#6f6;font-size:70px;"></span>
+				<p style="color:#eee;font-size:16px;margin-top:-10px">已收藏</p>
+			</div>
+		</div>
+		<script src="../js/mui.js"></script>
+		<script src="../js/muix.js"></script>
+		<script>
+			document.getElementById("collectBtn").addEventListener('tap', function() {
+				var tips = document.getElementById('collectToast');
+				tips.classList.add('mui-active');
+				setTimeout(function() {
+					tips.classList.remove('mui-active');
+				}, 1500);
+			});
+		</script>
+	</body>
+
+</html>

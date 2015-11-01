@@ -1,0 +1,12 @@
+.ui-page{
+    padding-right:20px;
+    padding-left:15px;
+}
+.ui-content .ui-listview,
+.ui-panel-inner > .ui-listview {
+	margin: 0;
+}
+.ui-content .ui-listview-inset,
+.ui-panel-inner > .ui-listview-inset {
+	margin: 0;
+} 

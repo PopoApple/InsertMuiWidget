@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/muix.css" rel="stylesheet" />
+		<link href="../css/style.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<button id="loadingBtn" style="z-index: 1001;">点击加载数据</button>
+			</div>
+			<div id="loadingModal" class="muix-tips-modal">
+				<div class="muix-tips">
+					<span class="mui-spinner mui-spinner-white" style="margin-top:15px;width: 40px;height: 40px;"></span>
+					<p style="color:#ddd;font-size:16px;">正在加载...</p>
+				</div>
+			</div>
+		</div>
+		<script src="../js/mui.js"></script>
+		<script src="../js/muix.js"></script>
+		<script>
+			document.getElementById("loadingBtn").addEventListener('tap', function() {
+				var tips = document.getElementById('loadingModal');
+				var btn = document.getElementById('loadingBtn');
+				if (tips.classList.contains('mui-active')) {
+					tips.classList.remove('mui-active');
+					btn.innerHTML = '点击加载数据';
+				} else {
+					tips.classList.add('mui-active');
+					btn.innerHTML = '取消';
+				}
+			});
+		</script>
+	</body>
+
+</html>

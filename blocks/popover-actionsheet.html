@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/muix.css" rel="stylesheet" />
+		<link href="../css/style.css" rel="stylesheet" />
+		<style data-ignore>
+			.mui-btn{
+				margin: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<a href="#pictureMenu" class="mui-btn mui-btn-primary mui-btn-outlined">打开相册</a>
+			<div id="pictureMenu" class="mui-popover mui-popover-action mui-popover-bottom">
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a>拍照或录像</a>
+					</li>
+					<li class="mui-table-view-cell">
+						<a>选取现有的</a>
+					</li>
+				</ul>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+						<a href="#pictureMenu"><b>取消</b></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script src="../js/mui.js"></script>
+		<script src="../js/muix.js"></script>
+	</body>
+
+</html>

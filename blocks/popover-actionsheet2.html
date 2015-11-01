@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/muix.css" rel="stylesheet" />
+		<link href="../css/style.css" rel="stylesheet" />
+		<style>
+			/*定义按钮组激活状态的样式*/
+			.mui-btn.muix-radiox[name=sizeBtns].mui-active{
+				background:#007AFF;
+				border-color:#007AFF;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<ul class="mui-table-view mui-content-padded">
+				<li class="mui-table-view-cell">
+					<a href="#selTypeMenu" class="mui-navigate-right">
+						选择规格
+					</a>
+				</li>
+			</ul>
+			<div id="selTypeMenu" class="mui-popover mui-popover-action mui-popover-bottom" style="background: #fff;height:170px">
+				<div style="position: relative;border-bottom: 1px solid #ccc;padding-top: 10px;">
+					<div style="position: absolute;top: -15px;left: 5px;width: 70px;height: 70px;padding: 3px;border-radius: 3px;background: #fff;">
+						<img class="demoImg" style="width:65px;height:65px" />
+					</div>
+					<div style="margin-left:80px">
+						<p style="color:#CF2D28">￥55.50元</p>
+						<p style="color:#333;font-size:13px;margin-top:-10px">已选：“中号A款”</p>
+					</div>
+					<a href="#selTypeMenu" class="mui-icon mui-icon-close" style="position: absolute;top: 5px;right: 15px;width: 12px;height: 12px;color: #aaa;"></a>
+				</div>
+				<div>
+					<div style="position:relative;height:110px">
+						<div id="scroll-v" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<div style="padding:0 5px">
+									<button type="button" name="sizeBtns" class="mui-btn muix-radiox mui-active" style="margin: 5px 2px;">中号A款</button>
+									<button type="button" name="sizeBtns" class="mui-btn muix-radiox" style="margin: 5px 2px;">中号B款</button>
+									<button type="button" name="sizeBtns" class="mui-btn muix-radiox" style="margin: 5px 2px;">中号C款</button>
+									<button type="button" name="sizeBtns" class="mui-btn muix-radiox" style="margin: 5px 2px;">大号A款</button>
+									<button type="button" name="sizeBtns" class="mui-btn muix-radiox" style="margin: 5px 2px;">大号B款</button>
+									<button type="button" name="sizeBtns" class="mui-btn muix-radiox" style="margin: 5px 2px;">特大号A款</button>
+									<button type="button" name="sizeBtns" class="mui-btn muix-radiox" style="margin: 5px 2px;">特大号B款</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../js/mui.js"></script>
+		<script src="../js/muix.js"></script>
+	</body>
+
+</html>

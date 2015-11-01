@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link href="style.css" rel="stylesheet" />
+    <style>
+        body{
+            background:rgb(223,226,226);
+        }
+    </style>   
+</head>
+
+<body>
+    <div id="imuiw-panel" class="bottom-panel no-focus">
+        <div class="toolbar simple-toolbar-layout">
+            <div class="title">MUI代码助手</div>
+            <a href="#" id="closeBtn" class="close">&times;</a>
+        </div>
+        <div id="panel-body" class="table-container resizable-content">
+            <div id="nav">
+                <ul class="mui-table-view mui-table-view-chevron">
+                    <li class="mui-table-view-cell">
+                        <a href="#page" class="mui-navigate-right active">页面结构</a>
+                    </li>
+                    <li class="mui-table-view-cell mui-collapse">
+                        <a class="mui-navigate-right">容器组件</a>
+                        <ul class="mui-table-view mui-table-view-chevron">
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#list">列表</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#grid">网格</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#showhide">开闭面板</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#card">圆角卡片</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#scroll">滑动</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#popover">弹出菜单</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#tips">消息框</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="mui-table-view-cell mui-collapse">
+                        <a class="mui-navigate-right">内容组件</a>
+                        <ul class="mui-table-view mui-table-view-chevron">
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#text">文字</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#image">图片</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#icon">图标</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#badge">标记</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="mui-table-view-cell mui-collapse"><a class="mui-navigate-right">交互组件</a>
+                        <ul class="mui-table-view mui-table-view-chevron">
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#button">按钮</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#link">链接</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#radio">单选框</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#checkbox">复选框</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#input">文本框</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#textarea">多行文本框</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#search">搜索框</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#numbox">数字输入框</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#switch">开关</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#range">滑块</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#picker">选择器</a>
+                            </li>
+                            <li class="mui-table-view-cell">
+                                <a class="mui-navigate-right" href="#timepicker">时间选择器</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="panels">
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <!--<script src="js/mui.js"></script>-->
+    <script>
+        var panels = [
+            {
+                id: 'page',
+                blocks: [
+                    {
+                        title: '简单页面',
+                        link: 'blocks/page-simple.html'
+                    },
+                    {
+                        title: '底部工具条',
+                        link: 'blocks/page-footer.html'
+                    },
+                    {
+                        title: '底部导航',
+                        link: 'blocks/page-nav-footer.html'
+                    },
+                    {
+                        title: '底部二级导航',
+                        link: 'blocks/page-nav-footer2.html'
+                    },
+                    {
+                        title: '顶部导航',
+                        link: 'blocks/page-nav-header-footer.html'
+                    },
+                    {
+                        title: '顶部导航2',
+                        link: 'blocks/page-nav-header2-offcanvas.html'
+                    },
+                    {
+                        title: '底部导航+顶部导航',
+                        link: 'blocks/page-nav-header2-footer.html'
+                    },
+                    {
+                        title: '纵向导航',
+                        link: 'blocks/page-nav-v.html'
+                    },
+                    {
+                        title: '综合应用',
+                        link: 'blocks/page-demo.html'
+                    }
+    ]
+            },
+            {
+                id: 'showhide',
+                blocks: [
+                    {
+                        title: '选项卡（胶囊式）',
+                        link: 'blocks/showhide-tabs-pill.html'
+                    },
+                    {
+                        title: '选项卡（下划线式）',
+                        link: 'blocks/showhide-tabs-line.html'
+                    },
+                    {
+                        title: '折叠面板',
+                        link: 'blocks/showhide-accordion.html'
+                    }
+    ]
+            },
+            {
+                id: 'card',
+                blocks: [
+                    {
+                        title: '简单卡片',
+                        link: 'blocks/card-text-img.html'
+                    },
+                    {
+                        title: '圆角列表',
+                        link: 'blocks/card-list.html'
+                    },
+                    {
+                        title: '圆角折叠面板',
+                        link: 'blocks/card-accordion.html'
+                    },
+                    {
+                        title: '登录框',
+                        link: 'blocks/card-btn-input.html'
+                    },
+                    {
+                        title: '综合应用',
+                        link: 'blocks/card-img-list.html'
+                    }
+    ]
+            },
+            {
+                id: 'list',
+                blocks: [
+                    {
+                        title: '简单列表',
+                        link: 'blocks/list-simple.html'
+                    },
+                    {
+                        title: '卡片状链接列表',
+                        link: 'blocks/list-link-card.html'
+                    },
+                    {
+                        title: '图标列表',
+                        link: 'blocks/list-icon.html'
+                    },
+                    {
+                        title: '图标列表2',
+                        link: 'blocks/list-icon2.html'
+                    },
+                    {
+                        title: '图文列表',
+                        link: 'blocks/list-image.html'
+                    },
+                    {
+                        title: '图文列表2',
+                        link: 'blocks/list-image2.html'
+                    },
+                    {
+                        title: '文字列表',
+                        link: 'blocks/list-text-complex.html'
+                    },
+                    {
+                        title: '分组列表',
+                        link: 'blocks/list-group.html'
+                    },
+                    {
+                        title: '分组列表2',
+                        link: 'blocks/list-group2.html'
+                    },
+                    {
+                        title: '表单',
+                        link: 'blocks/list-form.html'
+                    },
+                    {
+                        title: '二级列表',
+                        link: 'blocks/list-lv2.html'
+                    },
+                    {
+                        title: '滑动触发列表项菜单',
+                        link: 'blocks/list-swipe-menu.html'
+                    },
+                    {
+                        title: '复杂列表',
+                        link: 'blocks/list-complex.html'
+                    }
+    ]
+            },
+            {
+                id: 'grid',
+                blocks: [
+                    {
+                        title: '导航',
+                        link: 'blocks/grid-nav.html'
+                    },
+                    {
+                        title: '图文表格',
+                        link: 'blocks/grid-media-table.html'
+                    },
+                    {
+                        title: '九宫格',
+                        link: 'blocks/grid-9.html'
+                    },
+                    {
+                        title: '嵌套',
+                        link: 'blocks/grid-nested.html'
+                    }
+    ]
+            },
+            {
+                id: 'scroll',
+                blocks: [
+                    {
+                        title: '图片轮播',
+                        link: 'blocks/scroll-image.html'
+                    },
+                    {
+                        title: '下方悬浮标题的图片轮播',
+                        link: 'blocks/scroll-image-title.html'
+                    },
+                    {
+                        title: '新手指引',
+                        link: 'blocks/scroll-new.html'
+                    },
+                    {
+                        title: '左右滑动的图集',
+                        link: 'blocks/scroll-album.html'
+                    },
+                    {
+                        title: '左右滑动分页的图文表格 ',
+                        link: 'blocks/scroll-media-table.html'
+                    },
+                    {
+                        title: '左右拖动分页九宫格 ',
+                        link: 'blocks/scroll-grid9.html'
+                    },
+                    {
+                        title: '可左右拖动的选项卡',
+                        link: 'blocks/scroll-tabs.html'
+                    },
+                    {
+                        title: '下拉上拉触发事件',
+                        link: 'blocks/scroll-pullrefresh.html'
+                    },
+                    {
+                        title: '瀑布流图集',
+                        link: 'blocks/scroll-waterflow.html'
+                    }
+    ]
+            },
+            {
+                id: 'popover',
+                blocks: [
+                    {
+                        title: '气泡型弹出菜单',
+                        link: 'blocks/popover-bubble.html'
+                    },
+                    {
+                        title: '顶部弹出菜单',
+                        link: 'blocks/popover-dropdown.html'
+                    },
+                    {
+                        title: '底部弹出菜单 ',
+                        link: 'blocks/popover-actionsheet.html'
+                    },
+                    {
+                        title: '底部弹出菜单2 ',
+                        link: 'blocks/popover-actionsheet2.html'
+                    },
+                    {
+                        title: '侧滑菜单',
+                        link: 'blocks/popover-offcanvas.html'
+                    },
+                    {
+                        title: '侧滑菜单2',
+                        link: 'blocks/popover-offcanvas2.html'
+                    },
+                    {
+                        title: '侧滑菜单3',
+                        link: 'blocks/popover-offcanvas3.html'
+                    }
+    ]
+            },
+            {
+                id: 'tips',
+                blocks: [
+                    {
+                        title: '加载框',
+                        link: 'blocks/tips-loading.html'
+                    },
+                    {
+                        title: '自动消失提示框',
+                        link: 'blocks/tips-toast.html'
+                    },
+                    {
+                        title: '自动消失提示框2',
+                        link: 'blocks/tips-toast2.html'
+                    }
+    ]
+            },
+            {
+                id: 'text',
+                blocks: [
+                    {
+                        title: '文字语义标签',
+                        link: 'elements/text1-semantic-tag.html'
+                    },
+                    {
+                        title: '对齐方式',
+                        link: 'elements/text1-align.html'
+                    },
+                    {
+                        title: '文字溢出显示省略号',
+                        link: 'elements/text1-ellipsis.html'
+                    }
+    ]
+            },
+            {
+                id: 'image',
+                blocks: [
+                    {
+                        title: '基本图片',
+                        link: 'elements/image.html'
+                    },
+                    {
+                        title: '圆角',
+                        link: 'elements/image-round.html'
+                    },
+                    {
+                        title: '圆形',
+                        link: 'elements/image-circle.html'
+                    },
+                    {
+                        title: '宽度自适应',
+                        link: 'elements/image-responsive.html'
+                    }
+    ]
+            },
+            {
+                id: 'icon',
+                blocks: [
+                    {
+                        title: '基本图标',
+                        link: 'elements/icon.html'
+                    },
+                    {
+                        title: '自定义样式',
+                        link: 'elements/icon-style.html'
+                    },
+                    {
+                        title: '内置图标',
+                        link: 'elements/icon-all.html'
+                    },
+                    {
+                        title: '内置加载动画图标',
+                        link: 'elements/icon-loading.html'
+                    },
+                    {
+                        title: '添加外部图标',
+                        link: 'elements/icon-custom.html'
+                    }
+    ]
+            },
+            {
+                id: 'badge',
+                blocks: [
+                    {
+                        title: '基本标记',
+                        link: 'elements/badge.html'
+                    },
+                    {
+                        title: '角标',
+                        link: 'elements/badge-corner.html'
+                    },
+                    {
+                        title: '主题',
+                        link: 'elements/badge-theme.html'
+                    }
+    ]
+            },
+            {
+                id: 'button',
+                blocks: [
+                    {
+                        title: '基本按钮',
+                        link: 'elements/button.html'
+                    },
+                    {
+                        title: '块级按钮',
+                        link: 'elements/button-block.html'
+                    },
+                    {
+                        title: '轮廓线按钮',
+                        link: 'elements/button-outlined.html'
+                    },
+                    {
+                        title: '添加图标',
+                        link: 'elements/button-icon.html'
+                    },
+                    {
+                        title: '切换状态',
+                        link: 'elements/button-toggle.html'
+                    },
+                    {
+                        title: '按钮组',
+                        link: 'elements/button-group.html'
+                    },
+                    {
+                        title: '内置主题',
+                        link: 'elements/button-theme.html'
+                    },
+                    {
+                        title: '自定义主题',
+                        link: 'elements/button-theme-custom.html'
+                    }
+    ]
+            },
+            {
+                id: 'link',
+                blocks: [
+                    {
+                        title: '文字链接',
+                        link: 'elements/link.html'
+                    },
+                    {
+                        title: '文字、图标链接',
+                        link: 'elements/link-icon-text.html'
+                    },
+                    {
+                        title: '使用图标样式',
+                        link: 'elements/link-icon.html'
+                    },
+                    {
+                        title: '使用按钮样式',
+                        link: 'elements/link-btn.html'
+                    }
+    ]
+            },
+            {
+                id: 'radio',
+                blocks: [
+                    {
+                        title: '基本单选框',
+                        link: 'elements/radio.html'
+                    },
+                    {
+                        title: '在列表中-行选中模式',
+                        link: 'elements/radio-list.html'
+                    },
+                    {
+                        title: '自定义主题',
+                        link: 'elements/radio-theme.html'
+                    }
+    ]
+            },
+            {
+                id: 'checkbox',
+                blocks: [
+                    {
+                        title: '基本复选框',
+                        link: 'elements/checkbox.html'
+                    },
+                    {
+                        title: '在列表中-行选中模式',
+                        link: 'elements/checkbox-list.html'
+                    },
+                    {
+                        title: '自定义主题',
+                        link: 'elements/checkbox-theme.html'
+                    }
+    ]
+            },
+            {
+                id: 'input',
+                blocks: [
+                    {
+                        title: '默认',
+                        link: 'elements/input.html'
+                    },
+                    {
+                        title: '带清除按钮',
+                        link: 'elements/input-clear.html'
+                    },
+                    {
+                        title: '带有标签',
+                        link: 'elements/input-label.html'
+                    },
+                    {
+                        title: '在列表中-去边框模式',
+                        link: 'elements/input-list.html'
+                    },
+                    {
+                        title: '自定义主题',
+                        link: 'elements/input-theme.html'
+                    }
+    ]
+            },
+            {
+                id: 'textarea',
+                blocks: [
+                    {
+                        title: '默认',
+                        link: 'elements/textarea.html'
+                    },
+                    {
+                        title: '带有标签',
+                        link: 'elements/textarea-label.html'
+                    },
+                    {
+                        title: '在列表中-去边框模式',
+                        link: 'elements/textarea-list.html'
+                    },
+                    {
+                        title: '自定义主题',
+                        link: 'elements/textarea-theme.html'
+                    }
+    ]
+            },
+            {
+                id: 'search',
+                blocks: [
+                    {
+                        title: '默认',
+                        link: 'elements/search.html'
+                    },
+                    {
+                        title: '自定义主题',
+                        link: 'elements/search-theme.html'
+                    }
+    ]
+            },
+            {
+                id: 'numbox',
+                blocks: [
+                    {
+                        title: '默认',
+                        link: 'elements/numbox.html'
+                    },
+                    {
+                        title: '设置最小值、最大值、步长',
+                        link: 'elements/numbox-property.html'
+                    },
+                    {
+                        title: '自定义大小、主题',
+                        link: 'elements/numbox-custom.html'
+                    }
+    ]
+            },
+            {
+                id: 'switch',
+                blocks: [
+                    {
+                        title: '默认',
+                        link: 'elements/switch.html'
+                    },
+                    {
+                        title: '去文字',
+                        link: 'elements/switch-simple.html'
+                    },
+                    {
+                        title: '内置主题',
+                        link: 'elements/switch-theme.html'
+                    },
+                    {
+                        title: '自定义文字、样式',
+                        link: 'elements/switch-custom.html'
+                    }
+    ]
+            },
+            {
+                id: 'range',
+                blocks: [
+                    {
+                        title: '默认',
+                        link: 'elements/range.html'
+                    },
+                    {
+                        title: '带有标签',
+                        link: 'elements/range-label.html'
+                    },
+                    {
+                        title: '自定义主题',
+                        link: 'elements/range-custom.html'
+                    }
+    ]
+            },
+            {
+                id: 'picker',
+                blocks: [
+                    {
+                        title: '普通选择器',
+                        link: 'elements/picker.html'
+                    },
+                    {
+                        title: '二级联动',
+                        link: 'elements/picker-lv2.html'
+                    },
+                    {
+                        title: '三级联动',
+                        link: 'elements/picker-lv3.html'
+                    },
+                    {
+                        title: '在列表中',
+                        link: 'elements/picker-list.html'
+                    }
+    ]
+            },
+            {
+                id: 'timepicker',
+                blocks: [
+                    {
+                        title: '默认',
+                        link: 'elements/timepicker.html'
+                    },
+                    {
+                        title: '设定年份区间',
+                        link: 'elements/timepicker-set-range.html'
+                    },
+                    {
+                        title: '设定选中时间',
+                        link: 'elements/timepicker-set-all.html'
+                    },
+                    {
+                        title: '指定类型',
+                        link: 'elements/timepicker-type.html'
+                    },
+                    {
+                        title: '自定义数据',
+                        link: 'elements/timepicker-custom.html'
+                    }
+    ]
+            }
+   ];
+
+        function showPanel(id) {
+            if ($('#' + id).length == 0) {
+                var blocks;
+                for (var i = 0; i < panels.length; i++) {
+                    if (panels[i].id == id) {
+                        blocks = panels[i].blocks;
+                        break;
+                    }
+                }
+                var str = '<div class="showhide-panel clearfix" id="' + id + '">';
+                for (var i = 0; i < blocks.length; i++) {
+                    var block = blocks[i];
+                    str += '<div class="block">' +
+                        '<h5>' + block.title + '</h5>' +
+                        '<button class="insert-btn">插入代码</button>'+
+                        '<div class="subpage-loading"><span class="mui-spinner"></span></div>' +
+                        '<iframe></iframe>' +
+                        '</div>';
+                }
+                str += '</div>';
+                $('#panels').append(str);
+                var iframes = $('#' + id + ' iframe');
+                for (var i = 0; i < blocks.length; i++) {
+                    iframes[i].src = blocks[i].link;
+                    iframes[i].onload = function () {
+                        $(this).parent().find('.subpage-loading').remove();
+                    };
+                }
+            }
+            $('.showhide-panel').css('display', 'none');
+            $('#' + id).css('display', 'block');
+        }
+        $(function () {
+            $('.mui-collapse > a').click(function(e){
+                var $li = $(this).parent();
+                if($li.hasClass('mui-active')){
+                    $li.removeClass('mui-active');
+                }else{
+                    $('.mui-collapse').removeClass('mui-active');
+                    $li.addClass('mui-active');
+                }
+            });
+            
+            $('#nav a').click(function (e) {
+                //e.preventDefault();
+                //e.detail && e.detail.gesture.preventDefault();
+                var panelId = this.hash ? this.hash.replace('#', '') : '';
+                if (panelId != '') {
+                    showPanel(panelId);
+                    $('.mui-table-view-cell > a.active').removeClass('active');
+                    $(this).addClass('active');
+                }
+            });
+            showPanel('page');
+        });
+    </script>
+</body>
+
+</html>

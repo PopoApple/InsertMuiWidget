@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery Mobile Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="../jquery.mobile-1.4.4.min.css"/>
+    <link rel="stylesheet" href="../codeDivStyle.css"/>
+    <script src="../jquery-1.9.1.min.js"></script>
+    <script src="../jquery.mobile-1.4.4.min.js"></script>
+    <style>
+.ui-btn.my-tooltip-btn,
+.ui-btn.my-tooltip-btn:hover,
+.ui-btn.my-tooltip-btn:active {
+    background: none;
+    border: 0;
+}
+    </style>
+    <script>
+/* script */
+    </script>
+  </head>
+  <body>
+      <div id="codeBox"></div>
+      <div class="ui-content">
+<p>一篇带有小贴士的文章段落。<a href="#popupInfo" data-rel="popup" data-transition="pop" class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext" title="注解">注解</a></p> 
+<div data-role="popup" id="popupInfo" class="ui-content" data-overlay-theme="a" data-theme="b" style="max-width:350px;">
+  <p>文章相关词条注解等信息。</p>
+</div>
+      </div>
+  </body>
+</html>

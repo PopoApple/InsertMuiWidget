@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery Mobile Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="../jquery.mobile-1.4.4.min.css"/>
+    <link rel="stylesheet" href="../codeDivStyle.css"/>
+    <script src="../jquery-1.9.1.min.js"></script>
+    <script src="../jquery.mobile-1.4.4.min.js"></script>
+    <style>
+<!-- css -->
+    </style>
+    <script>
+/* script */
+    </script>
+  </head>
+  <body>
+      <div id="codeBox"></div>
+      <div class="ui-content">
+<ul data-role="listview" data-split-icon="gear" data-split-theme="a">
+    <li><a href="#">
+        <img src="../../img/demos/album-bb.jpg">
+    <h2>Broken Bells</h2>
+    <p>Broken Bells</p></a>
+        <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">购买</a>
+    </li>
+    <li><a href="#">
+        <img src="../../img/demos/album-hc.jpg">
+    <h2>Warning</h2>
+    <p>Hot Chip</p></a>
+        <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">购买</a>
+    </li>
+    <li><a href="#">
+        <img src="../../img/demos/album-p.jpg">
+    <h2>Wolfgang Amadeus Phoenix</h2>
+    <p>Phoenix</p></a>
+        <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">购买</a>
+    </li>
+</ul>
+<div data-role="popup" id="purchase" data-theme="a" data-overlay-theme="b" class="ui-content" style="max-width:340px; padding-bottom:2em;">
+    <h3>购买专辑?</h3>
+<p>购买成功后，立即下载到手机。</p>
+    <a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-b ui-icon-check ui-btn-icon-left ui-btn-inline ui-mini">购买: ￥10.99</a> 
+    <a href="index.html" data-rel="back" class="ui-shadow ui-btn ui-corner-all ui-btn-inline ui-mini">取消</a>
+</div>
+      </div>
+  </body>
+</html>

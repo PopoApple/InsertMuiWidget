@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery Mobile Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="../jquery.mobile-1.4.4.min.css"/>
+    <link rel="stylesheet" href="../codeDivStyle.css"/>
+    <script src="../jquery-1.9.1.min.js"></script>
+    <script src="../jquery.mobile-1.4.4.min.js"></script>
+    <style>
+<!-- css -->
+    </style>
+    <script>
+// 初始化
+$(function() {
+    $( "[data-role='navbar']" ).navbar();
+    $( "[data-role='header'], [data-role='footer']" ).toolbar();
+});
+// 切换页面时更新相关状态
+$( document ).on( "pagecontainerchange", function() {
+    var current = $( ".ui-page-active" ).jqmData( "title" );
+    $( "[data-role='header'] h1" ).text( current );
+    $( "[data-role='navbar'] a.ui-btn-active" ).removeClass( "ui-btn-active" ); 
+    $( "[data-role='navbar'] a" ).each(function() {
+        if ( $( this ).text() === current ) {
+            $( this ).addClass( "ui-btn-active" );
+        }
+    });
+});
+    </script>
+  </head>
+  <body>
+      <div id="codeBox"></div>
+<div data-role="header" data-position="fixed" data-theme="a">
+    <a href="#" class="ui-btn ui-btn-left ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-notext ui-icon-carat-l">Back</a> 
+    <h1>Info</h1>
+</div>
+<!-- 主页 开始 -->
+<div data-role="page" data-title="主页" id="home">
+    <div role="main" class="ui-content">
+       <p>主页的内容</p>
+    </div>
+</div>
+<!-- 主页 结束 -->
+<!-- 收藏页 开始 -->
+<div data-role="page" data-title="收藏" id="favs">
+    <div role="main" class="ui-content">
+       <p>收藏页的内容</p>
+    </div>
+</div>
+<!-- 收藏页 结束 -->
+<!-- 设置页 开始 -->
+<div data-role="page" data-title="设置" id="setup">
+    <div role="main" class="ui-content">
+       <p>设置页的内容</p>
+    </div>
+</div>
+<!-- 设置页 结束 -->
+<div data-role="footer" data-position="fixed" data-theme="a">
+    <div data-role="navbar">
+        <ul>
+            <li><a href="#home" data-icon="home" class="ui-btn-active">主页</a></li>
+            <li><a href="#favs" data-icon="star">收藏</a></li>
+            <li><a href="#setup" data-icon="gear">设置</a></li>
+        </ul>
+    </div>
+</div>
+  </body>
+</html>

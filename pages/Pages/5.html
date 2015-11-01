@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery Mobile Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="../jquery.mobile-1.4.4.min.css"/>
+    <link rel="stylesheet" href="../codeDivStyle.css"/>
+    <script src="../jquery-1.9.1.min.js"></script>
+    <script src="../jquery.mobile-1.4.4.min.js"></script>
+    <style>
+<!-- css -->
+    </style>
+    <script>
+/* script */
+    </script>
+  </head>
+  <body>
+      <div id="codeBox"></div>
+<div data-role="page" data-theme="b">
+    <div data-role="header" data-position="fixed" data-fullscreen="true">
+        <div data-role="controlgroup" data-type="horizontal" class="ui-mini ui-btn-left">
+            <a href="#" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-notext ui-icon-plus">放大</a>
+            <a href="#" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-notext ui-icon-minus">缩小</a>
+        </div>
+        <span class="ui-title"></span>
+    </div>
+    <div class="ui-content" role="main">
+        <img src="../../img/demos/newyork.jpg" alt="New York" style="width:100%; max-width:2048px; margin:0 auto; display:block;"> 
+    </div>
+    <div data-role="footer" data-position="fixed" data-fullscreen="true">
+        <div class="ui-bar">
+            <select data-mini="true" data-inline="true">
+                <option>分享...</option>
+                <option value="email">朋友圈</option>
+                <option value="weixin">微信好友</option>
+                <option value="qq">QQ</option>
+            </select>
+        </div>
+    </div>
+</div>
+  </body>
+</html>

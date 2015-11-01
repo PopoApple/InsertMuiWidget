@@ -1,0 +1,67 @@
+.ui-panel {
+	width: 7em;
+}
+.ui-panel-position-left {
+	left: -7em;
+}
+.ui-panel-animate.ui-panel-position-left.ui-panel-display-overlay,
+.ui-panel-animate.ui-panel-position-left.ui-panel-display-push {
+	left: 0;
+	-webkit-transform: translate3d(-7em,0,0);
+	-moz-transform: translate3d(-7em,0,0);
+	transform: translate3d(-7em,0,0);
+}
+.ui-panel-position-right {
+	right: -7em;
+}
+/* Panel right closed animated */
+.ui-panel-animate.ui-panel-position-right.ui-panel-display-overlay,
+.ui-panel-animate.ui-panel-position-right.ui-panel-display-push {
+	right: 0;
+	-webkit-transform: translate3d(7em,0,0);
+	-moz-transform: translate3d(7em,0,0);
+	transform: translate3d(7em,0,0);
+}
+/* Wrapper and fixed toolbars positioning (for reveal and push) */
+/* Panel left open */
+.ui-panel-page-content-position-left {
+	left: 7em;
+	right: -7em;
+}
+/* Panel left open animated */
+.ui-panel-animate.ui-panel-page-content-position-left {
+	left: 0;
+	right: 0;
+	-webkit-transform: translate3d(7em,0,0);
+	-moz-transform: translate3d(7em,0,0);
+	transform: translate3d(7em,0,0);
+}
+/* Panel right open */
+.ui-panel-page-content-position-right {
+	left: -7em;
+	right: 7em;
+}
+/* Panel right open animated */
+.ui-panel-animate.ui-panel-page-content-position-right {
+	left: 0;
+	right: 0;
+	-webkit-transform: translate3d(-7em,0,0);
+	-moz-transform: translate3d(-7em,0,0);
+	transform: translate3d(-7em,0,0);
+}
+/* Dismiss model open */
+.ui-panel-dismiss-open.ui-panel-dismiss-position-left {
+	left: 7em;
+}
+.ui-panel-dismiss-open.ui-panel-dismiss-position-right {
+	right: 7em;
+}
+/* Responsive: wrap on wide viewports once open */
+@media (min-width:55em) {
+	.ui-responsive-panel .ui-panel-page-content-open.ui-panel-page-content-position-left {
+		margin-right: 7em;
+	}
+	.ui-responsive-panel .ui-panel-page-content-open.ui-panel-page-content-position-right {
+		margin-left: 7em;
+	}
+}

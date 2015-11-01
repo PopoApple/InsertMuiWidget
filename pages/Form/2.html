@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jQuery Mobile Example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="../jquery.mobile-1.4.4.min.css"/>
+    <link rel="stylesheet" href="../codeDivStyle.css"/>
+    <link rel="stylesheet" href="../style.css"/>
+    <script src="../jquery-1.9.1.min.js"></script>
+    <script src="../jquery.mobile-1.4.4.min.js"></script>
+    <style>
+<!-- css -->
+    </style>
+    <script>
+/* script */
+    </script>
+  </head>
+  <body>
+      <div id="codeBox"></div>
+      <div class="ui-content">
+<form>
+    <ul data-role="listview" data-inset="true">
+        <li class="ui-field-contain">
+            <label for="text1">请输入:</label>
+            <input type="text" name="text1" id="text1" value="" data-clear-btn="true">
+        </li>
+        <li class="ui-field-contain">
+            <label for="textarea1">请输入:</label>
+        <textarea cols="40" rows="8" name="textarea1" id="textarea1"></textarea>
+        </li>
+        <li class="ui-field-contain">
+            <label for="flip1">请选择:</label>
+            <select name="flip1" id="flip1" data-role="slider">
+                <option value="off">关</option>
+                <option value="on">开</option>
+            </select>
+        </li>
+        <li class="ui-field-contain">
+            <label for="slider1">请输入:</label>
+            <input type="range" name="slider1" id="slider1" value="0" min="0" max="100" data-highlight="true"> 
+        </li>
+        <li class="ui-field-contain">
+            <label for="select1" class="select">请选择:</label>
+            <select name="select1" id="select1">
+                <option value="1">选项1</option>
+                <option value="2">选项2</option>
+                <option value="3">选项3</option>
+            </select>
+        </li>
+        <li class="ui-body ui-body-b">
+            <fieldset class="ui-grid-a">
+                    <div class="ui-block-a"><a class="ui-btn ui-corner-all ui-btn-a">取消</a></div>
+                    <div class="ui-block-b"><a class="ui-btn ui-corner-all ui-btn-a">确定</a></div>
+            </fieldset>
+        </li>
+    </ul>
+</form>
+      </div>
+  </body>
+</html>

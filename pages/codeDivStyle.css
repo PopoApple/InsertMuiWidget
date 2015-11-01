@@ -1,0 +1,14 @@
+#codeBox{
+    position: absolute;
+    z-index: 2000;
+    left:0;
+    top:0;
+    width: 310px;
+    height: 180px;
+    background: #fff;
+    display:none;
+    padding-left: 10px;
+    overflow: auto;
+    text-shadow:none;
+    color:#000;
+}

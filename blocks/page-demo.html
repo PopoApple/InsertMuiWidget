@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../css/mui.css" rel="stylesheet"/>
+		<link href="../css/muix.css" rel="stylesheet"/>
+		<link href="../css/style.css" rel="stylesheet"/>
+		<style>
+			/*调整下拉刷新加载提示的位置 */
+			.mui-pull-top-tips {
+				top: 44px;
+			}
+			/*自定义底部导航栏链接激活状态的颜色 */
+		    .mui-bar-tab .mui-tab-item.mui-active{
+		    	color: #F14E41;
+		    }
+		    /*顶部栏内容的状态 */
+		    .header_content{
+		    	display:none;
+		    }
+		    .header_content.active{
+		    	display:block;
+		    }
+		</style>
+	</head>
+	<body>
+		<div class="mui-off-canvas-wrap mui-draggable">
+			<div class="mui-inner-wrap">
+				<header class="mui-bar mui-bar-nav" style="background-color: #F14E41;">
+					<div id="headerContent1" class="header_content active">
+						<a href="#offCanvas_left" class="mui-icon mui-icon-bars mui-pull-left" style="color: #fff;"></a>
+						<div class="mui-pull-right">
+							<span class="muix-badge-wrapper">
+								<a href="#popmenu_main" class="mui-icon mui-icon-plusempty" style="color: #fff;font-size:38px;top:-7px;right:-7px"></a>
+								<span class="mui-badge muix-badge-empty" style="top:8px;background: #fff;"></span>
+							</span>
+						</div>
+						<h1 class="mui-title" style="color:#fff">首页</h1>
+					</div>
+					<div id="headerContent2" class="header_content">
+						<h1 class="mui-title" style="color:#fff">消息</h1>
+					</div>
+					<div id="headerContent3" class="header_content">
+						<h1 class="mui-title" style="color:#fff">通讯录</h1>
+					</div>
+					<div id="headerContent4" class="header_content">
+						<h1 class="mui-title" style="color:#fff">设置</h1>
+					</div>
+				</header>
+				<footer class="mui-bar mui-bar-tab">
+					<a class="mui-tab-item mui-active" href="#subPage1">
+						<span class="mui-icon mui-icon-home"></span>
+						<span class="mui-tab-label">首页</span>
+					</a>
+					<a class="mui-tab-item" href="#subPage2">
+						<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+						<span class="mui-tab-label">消息</span>
+					</a>
+					<a class="mui-tab-item" href="#subPage3">
+						<span class="mui-icon mui-icon-contact"></span>
+						<span class="mui-tab-label">通讯录</span>
+					</a>
+					<a class="mui-tab-item" href="#subPage4">
+						<span class="mui-icon mui-icon-gear"></span>
+						<span class="mui-tab-label">设置</span>
+					</a>
+				</footer>
+				<div class="mui-content mui-fullscreen">
+					<div id="subPage1" class="mui-control-content mui-active" style="height: 100%;">
+						<div class="mui-scroll-wrapper">
+							<div id="subPage1_muiScroll" class="mui-scroll">
+								<div id="slider" class="mui-slider" >
+									<div class="mui-slider-group">
+										<div class="mui-slider-item">
+											<a><img class="demoImg" style="width:100%;height:100px;" /></a>
+										</div>
+										<div class="mui-slider-item">
+											<a><img class="demoImg" style="width:100%;height:100px;" /></a>
+										</div>
+										<div class="mui-slider-item">
+											<a><img class="demoImg" style="width:100%;height:100px;" /></a>
+										</div>
+									</div>
+									<div class="mui-slider-indicator">
+										<div class="mui-indicator mui-active"></div>
+										<div class="mui-indicator"></div>
+										<div class="mui-indicator"></div>
+									</div>
+								</div>
+								<div id="subPage1_imglist" class="mui-row mui-text-center" style="margin-top:10px">
+									<div class="mui-col-xs-4">
+										<img class="demoImg" style="width:95%;height:120px;" />
+									</div>
+									<div class="mui-col-xs-4">
+										<img class="demoImg" style="width:95%;height:120px;" />
+									</div>
+									<div class="mui-col-xs-4">
+										<img class="demoImg" style="width:95%;height:120px;" />
+									</div>
+									<div class="mui-col-xs-4">
+										<img class="demoImg" style="width:95%;height:120px;" />
+									</div>
+									<div class="mui-col-xs-4">
+										<img class="demoImg" style="width:95%;height:120px;" />
+									</div>
+									<div class="mui-col-xs-4">
+										<img class="demoImg" style="width:95%;height:120px;" />
+									</div>
+									<div class="mui-col-xs-4">
+										<img class="demoImg" style="width:95%;height:120px;" />
+									</div>
+									<div class="mui-col-xs-4">
+										<img class="demoImg" style="width:95%;height:120px;" />
+									</div>
+									<div class="mui-col-xs-4">
+										<img class="demoImg" style="width:95%;height:120px;" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="subPage2" class="mui-control-content" style="height: 100%;">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view mui-table-view-chevron">
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right">
+											<span class="mui-badge">1</span>
+											消息 1
+										</a>
+									</li>
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right">
+											<span class="mui-badge">8</span>
+											消息 2
+										</a>
+									</li>
+									<li class="mui-table-view-cell"><a class="mui-navigate-right">消息 3</a></li>
+									<li class="mui-table-view-cell"><a class="mui-navigate-right">消息 4</a></li>
+									<li class="mui-table-view-cell"><a class="mui-navigate-right">消息 5</a></li>
+									<li class="mui-table-view-cell"><a class="mui-navigate-right">消息 6</a></li>
+									<li class="mui-table-view-cell"><a class="mui-navigate-right">消息 7</a></li>
+									<li class="mui-table-view-cell"><a class="mui-navigate-right">消息 8</a></li>
+									<li class="mui-table-view-cell"><a class="mui-navigate-right">消息 9</a></li>
+									<li class="mui-table-view-cell"><a class="mui-navigate-right">消息 10</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="subPage3" class="mui-control-content" style="height: 100%;">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									<li class="mui-table-view-cell">
+										<a>
+											<span class="mui-h6 mui-pull-right">董事长</span>
+											<img class="muix-img-circle mui-pull-left demoImg" style="width:60px;height:60px;margin-right:8px" src="data:image/jpg;base64,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" />
+											<h4>叶文洁</h4>
+											<p>yewenjie@sina.com</p>
+										</a>
+									</li>
+									<li class="mui-table-view-cell">
+										<a>
+											<span class="mui-h6 mui-pull-right">总经理</span>
+											<img class="muix-img-circle mui-pull-left demoImg" style="width:60px;height:60px;margin-right:8px" src="data:image/jpg;base64,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" />
+											<h4>艾AA</h4>
+											<p>aaa@163.com</p>
+										</a>
+									</li>
+									<li class="mui-table-view-cell">
+										<a>
+											<span class="mui-h6 mui-pull-right">员工</span>
+											<img class="muix-img-circle mui-pull-left demoImg" style="width:60px;height:60px;margin-right:8px" src="data:image/jpg;base64,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" />
+											<h4>罗辑</h4>
+											<p>luoji@126.com</p>
+										</a>
+									</li>
+									<li class="mui-table-view-cell">
+										<a>
+											<span class="mui-h6 mui-pull-right">员工</span>
+											<img class="muix-img-circle mui-pull-left demoImg" style="width:60px;height:60px;margin-right:8px" src="data:image/jpg;base64,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" />
+											<h4>云天明</h4>
+											<p>ytm@163.com</p>
+										</a>
+									</li>
+									<li class="mui-table-view-cell">
+										<a>
+											<span class="mui-h6 mui-pull-right">员工</span>
+											<img class="muix-img-circle mui-pull-left demoImg" style="width:60px;height:60px;margin-right:8px" src="data:image/jpg;base64,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" />
+											<h4>史强</h4>
+											<p>shiqiang@gmail.com</p>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div id="subPage4" class="mui-control-content" style="height: 100%;">
+						<div class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<ul class="mui-table-view">
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right">新消息通知</a>
+									</li>
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right">隐私</a>
+									</li>
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right">通用</a>
+									</li>
+								</ul>
+								<ul class="mui-table-view" style="margin-top: 25px;">
+									<li class="mui-table-view-cell">
+										<a class="mui-navigate-right">关于</a>
+									</li>
+								</ul>
+								<ul class="mui-table-view" style="margin-top: 25px;">
+									<li class="mui-table-view-cell">
+										<a style="text-align: center;color: #FF3B30;">退出登录</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="mui-off-canvas-backdrop"></div>
+			</div>
+			<aside id="offCanvas_left" class="mui-off-canvas-left">
+				<div class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<ul class="mui-table-view mui-table-view-inverted">
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">项目 1</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">项目 2</a>
+							</li>
+							<li class="mui-table-view-cell">
+								<a class="mui-navigate-right">项目 3</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</aside>
+		</div>
+		<div id="popmenu_main" class="mui-popover">
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell">
+					<a>项目 1</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>项目 2</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a>项目 3</a>
+				</li>
+			</ul>
+		</div>
+    	<script src="../js/mui.js"></script>
+    	<script src="../js/muix.js"></script>
+		<script src="../js/mui.pullToRefresh.js" data-temp ></script>
+    	<script>
+    		(function($) {
+    			//第1个子页面中的下拉刷新和上拉加载
+				$('#subPage1_muiScroll').pullToRefresh({
+					down: {
+						callback: function() {
+							var self = this;
+							setTimeout(function() {	//为了演示效果，用setTimeout模拟加载延时，实际使用时为异步请求数据的方法
+								self.endPullDownToRefresh();
+							}, 1000);
+						}
+					},
+					up: {
+						callback: function() {
+							var self = this;
+							setTimeout(function() { //为了演示效果，用setTimeout模拟加载延时，实际使用时为异步请求数据的方法
+								var list = document.getElementById('subPage1_imglist');
+								var li = document.createElement('div');
+								li.classList.add('mui-col-xs-4');
+								li.innerHTML = '<img class="demoImg" style="width:95%;height:120px;" />';
+								list.appendChild(li);
+								list.appendChild(li.cloneNode(true));
+								list.appendChild(li.cloneNode(true));
+								self.endPullUpToRefresh();
+							}, 1000);
+						}
+					}
+				});
+				//切换子页面时更新顶部栏
+				$('.mui-tab-item').each(function(i,item){
+					item.addEventListener('tap', function() {
+						$('.header_content').each(function(j,content){
+							content.classList.remove('active');
+						});
+						document.getElementById('headerContent'+this.hash.replace('#subPage','')).classList.add('active');
+					}, false);
+				});
+			})(mui);
+    	</script>
+	</body>
+</html>

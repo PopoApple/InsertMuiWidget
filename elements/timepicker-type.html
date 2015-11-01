@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/muix.css" rel="stylesheet" />
+		<link data-add href="../css/mui.picker.all.css" rel="stylesheet" />
+		<link href="../css/style.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<button id='timepickerBtn_date' class="mui-btn mui-btn-block">选择日期 ...</button>
+				<button id='timepickerBtn_time' class="mui-btn mui-btn-block">选择时间 ...</button>
+				<button id='timepickerBtn_month' class="mui-btn mui-btn-block">选择月份 ...</button>
+				<div id='timepickerResult'></div>
+			</div>
+		</div>
+		<script src="../js/mui.js"></script>
+		<script src="../js/muix.js"></script>
+		<script data-add src="../js/mui.picker.all.js"></script>
+		<script>
+			(function($) {
+				var result = $('#timepickerResult')[0];
+				var btns = $('[id^=timepickerBtn_]'); 
+				btns.each(function(i, btn) {
+					btn.addEventListener('tap', function() {
+						var picker = new $.DtPicker({
+							'type':this.id.replace('timepickerBtn_','')   //根据按钮的id获得类型，类型有date、time、month
+						});
+						picker.show(function(rs) {
+							/*
+							 * rs.value 拼合后的 value
+							 * rs.text 拼合后的 text
+							 * rs.y 年，可以通过 rs.y.vaue 和 rs.y.text 获取值和文本
+							 * rs.m 月，用法同年
+							 * rs.d 日，用法同年
+							 * rs.h 时，用法同年
+							 * rs.i 分（minutes 的第二个字母），用法同年
+							 */
+							result.innerText = '选择结果: ' + rs.text;
+						});
+					}, false);
+				});
+			})(mui);
+		</script>
+	</body>
+
+</html>

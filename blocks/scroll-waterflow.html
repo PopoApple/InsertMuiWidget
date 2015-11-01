@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../css/mui.css" rel="stylesheet" />
+		<link href="../css/muix.css" rel="stylesheet" />
+		<link href="../css/style.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div id="imgWaterflow" class="mui-content mui-scroll-wrapper" style="background:#ccc;position: absolute;top:0;bottom:0;left:0;width:100%">
+			<div class="mui-scroll">
+				<div class="mui-control-content mui-active">
+					<div class="mui-row mui-text-center" style="padding:10px 5px">
+						<div class="mui-col-xs-6">
+							<img class="demoImg" style="width:95%;height:120px;" />
+						</div>
+						<div class="mui-col-xs-6">
+							<img class="demoImg" style="width:95%;height:120px;" />
+						</div>
+						<div class="mui-col-xs-6">
+							<img class="demoImg" style="width:95%;height:120px;" />
+						</div>
+						<div class="mui-col-xs-6">
+							<img class="demoImg" style="width:95%;height:120px;" />
+						</div>
+						<div class="mui-col-xs-6">
+							<img class="demoImg" style="width:95%;height:120px;" />
+						</div>
+						<div class="mui-col-xs-6">
+							<img class="demoImg" style="width:95%;height:120px;" />
+						</div>
+						<div class="mui-col-xs-6">
+							<img class="demoImg" style="width:95%;height:120px;" />
+						</div>
+						<div class="mui-col-xs-6">
+							<img class="demoImg" style="width:95%;height:120px;" />
+						</div>
+						<div class="mui-col-xs-6">
+							<img class="demoImg" style="width:95%;height:120px;" />
+						</div>
+						<div class="mui-col-xs-6">
+							<img class="demoImg" style="width:95%;height:120px;" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../js/mui.js"></script>
+		<script src="../js/muix.js"></script>
+		<script src="../js/mui.pullToRefresh.js" data-add></script>
+		<script>
+			(function($) {
+				$(document.querySelector('#imgWaterflow .mui-scroll')).pullToRefresh({
+					up: {
+						callback: function() {
+							var self = this;
+							setTimeout(function() { //为了演示效果，用setTimeout模拟加载延时，实际使用时为异步请求数据的方法
+								var imgList = document.querySelector('#imgWaterflow .mui-row');
+								var li = document.createElement('div');
+								li.classList.add('mui-col-xs-6');
+								li.innerHTML = '<img class="demoImg" style="width:95%;height:120px;" />';
+								imgList.appendChild(li);
+								imgList.appendChild(li.cloneNode(true));
+								self.endPullUpToRefresh();
+							}, 1000);
+						}
+					}
+				});
+			})(mui);
+		</script>
+	</body>
+
+</html>
