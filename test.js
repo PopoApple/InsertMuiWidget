@@ -1,19 +1,3 @@
-define(function (require, exports, module) {
-    "use strict";
-    
-    var CommandManager   = brackets.getModule("command/CommandManager"),
-		EditorManager    = brackets.getModule("editor/EditorManager"),
-        WorkspaceManager = brackets.getModule("view/WorkspaceManager"),
-        ExtensionUtils   = brackets.getModule("utils/ExtensionUtils"),
-        ExtensionLoader  = brackets.getModule("utils/ExtensionLoader"),
-        FileSystem       = brackets.getModule("filesystem/FileSystem"),
-        AppInit          = brackets.getModule("utils/AppInit"),
-        PanelTemplate    = require("text!panel.html"),
-        Strings          = require("strings"),
-        widgetInfo       = require("pages/widgetInfo").root,
-        panel            = null,
-        extensionBase    = ExtensionLoader.getUserExtensionPath()+'/InsertMuiWidget';
-    
 var tabDatas = [
         {
             id: 'page',
@@ -104,7 +88,7 @@ var tabDatas = [
                 {
                     title: '简单列表',
                     link: 'blocks/list-simple.html'
-                }/*,
+                },
                 {
                     title: '卡片状链接列表',
                     link: 'blocks/list-link-card.html'
@@ -152,7 +136,7 @@ var tabDatas = [
                 {
                     title: '复杂列表',
                     link: 'blocks/list-complex.html'
-                }*/
+                }
 ]
         },
         {
@@ -600,229 +584,61 @@ var tabDatas = [
 ]
         }
 ];
-
-    function panelOpen() {
-        panel.show();
-    } 
-    function panelClose() {
-        panel.hide();
+var html_panel = $('#imuiw-panel');
+$('.mui-collapse > a', html_panel).click(function(){
+    var $li = $(this).parent();
+    if($li.hasClass('mui-active')){
+        $li.removeClass('mui-active');
+    }else{
+        $('.mui-collapse', html_panel).removeClass('mui-active');
+        $li.addClass('mui-active');
     }
-    /*function _insert(btnObj){
-        var editor = EditorManager.getFocusedEditor();
-        if (!editor) {
-            return;
-        }
-        var a = $(btnObj).attr('id').replace('insertBtn-','').split('_');
-        var wIdx = parseInt(a[0]);
-        var dIdx = parseInt(a[1]);
-        var demo = widgetInfo[wIdx].demos[dIdx];
-        var strHtml = demo.codes.html;
-        var strCss = demo.codes.css;
-        var strJs = demo.codes.js;
-        var str;
-        if(demo.view=='html'){
-            str = strHtml;
-        }else if(demo.view=='css'){
-            str = strCss;
-        }else if(demo.view=='js'){
-            str = strJs;
-        }else{
-            str = strHtml;
-            if(strCss!=undefined){
-                str += '\n<!-- css 请将代码复制到适当的位置\n'+strCss+'\n-->';
-            }
-            if(strJs!=undefined){
-                str += '\n<!-- js 请将代码复制到适当的位置\n'+strJs+'\n-->';
-            }
-        }
-        var primarySel = editor.getSelection();
-        var startPos = primarySel.start;
-        var endPos = primarySel.end;
-        var indent = '';
-        for(var i=0;i<startPos.ch;i++){
-          indent += ' ';
-        }
-        str = str.replace(/\n/g,'\n'+indent);
-        editor.document.replaceRange(str,startPos,endPos);
-        endPos = editor.getSelection().start;
-        editor.setSelection(startPos,endPos,false,0);
-    }
-    */
-    function getTabDataById(id){
-        for(var i=0;i<tabDatas.length;i++){
-            if(tabDatas[i].id ===id){
-                return tabDatas[i];
-            }
-        }
-    }
-    function insertCode(tabId,blockIdx){
-        var tabData = getTabDataById(tabId);
-        var str = tabData.blocks[blockIdx].html;
-        console.log(str);
-        var editor = EditorManager.getFocusedEditor();
-        if (!editor) {
-            return;
-        }
-        var primarySel = editor.getSelection();
-        var startPos = primarySel.start;
-        var endPos = primarySel.end;
-        var indent = '';
-        console.log(startPos.ch);
-        for(var i=0;i<startPos.ch/4;i++){
-            indent += '	';
-        }
-        console.log('indent'+indent+'indent');
-        str = str.replace(/\r\n/g,'\r\n'+indent);
-        console.log(str);
-        editor.document.replaceRange(str,startPos,endPos);
-        endPos = editor.getSelection().start;
-        editor.setSelection(startPos,endPos,false,0);
-    }
-    var currTabData,currBlockIdx;
-    function initBlockCode(){
-        var block = currTabData.blocks[currBlockIdx];
-        var path = extensionBase+'/'+block.link;
-        FileSystem.getFileForPath(path).read(function(err, str, stau){
-            var htmlStr, sIdx, eIdx;
-            if(block.link.indexOf('blocks/page-')==0){
-                sIdx = str.indexOf('<body>')+6;
-                eIdx = str.indexOf('<script');
-            }else{
-                sIdx = str.indexOf('<div class="mui-content">')+25;
-                eIdx = str.lastIndexOf('</div>');
-            }
-            htmlStr = str.substring(sIdx,eIdx);
-            var indent = '';
-            for(var i=htmlStr.indexOf('\r\n')+2;i<htmlStr.indexOf('<');i++){
-                indent += '	';
-            } 
-            indent += '';
-            var reg = new RegExp('\r\n'+indent,'g');
-            htmlStr = htmlStr.replace(reg,'\r\n');
-            htmlStr = htmlStr.substring(htmlStr.indexOf('\r\n')+2,htmlStr.lastIndexOf('\r\n'));
-            block.html = htmlStr;
-            currBlockIdx++;
-            if(currBlockIdx <= currTabData.blocks.length-1){
-                initBlockCode();
-            }else{
-                return;
-            }
-        });
-    }
-    function initTabCode(id){
-        currTabData = getTabDataById(id);
-        currBlockIdx = 0;
-        initBlockCode();
-            /*demo.codes = new Object();
-            var htmlStr;
-            var contentIdx = str.indexOf('<div class="ui-content">');
-            if(contentIdx>=0){
-                htmlStr = str.substring(contentIdx+24,str.lastIndexOf('</div>'));
-            }else{
-                htmlStr = str.substring(str.indexOf('<div id="codeBox"></div>')+24,str.indexOf('</body>'));
-            }
-            var startIdx = htmlStr.indexOf('\n');
-            var endIdx = htmlStr.lastIndexOf('\n');
-            demo.codes.html = _replaceImgPath(htmlStr.substring(startIdx+1,endIdx-1));
-            if(str.indexOf('<!-- css -->')<0){
-                var cssStr = str.substring(str.indexOf('<style>')+7,str.indexOf('</style>'));
-                var startIdx = cssStr.indexOf('\n');
-                var endIdx = cssStr.lastIndexOf('\n');
-                demo.codes.css = _replaceImgPath(cssStr.substring(startIdx+1,endIdx-1));
-            }*/
-           // if(str.indexOf('/* script */')<0){
-           /*     var jsStr = str.substring(str.indexOf('<script>')+8,str.lastIndexOf('</script>'));
-                var startIdx = jsStr.indexOf('\n');
-                var endIdx = jsStr.lastIndexOf('\n');
-                demo.codes.js = _replaceImgPath(jsStr.substring(startIdx+1,endIdx-1));
-            }
-            if(++demoIdx4Init < widgetInfo[wIdx].demos.length){
-                _initDemo(wIdx);
-            }else{
-                _initDemoView(wIdx);
-            }*/
-    }
-    function showTab(id) {
-        if ($('#imuiw-panel-' + id).length == 0) {
-            var blocks;
-            for (var i = 0; i < tabDatas.length; i++) {
-                if (tabDatas[i].id == id) {
-                    blocks = tabDatas[i].blocks;
-                    break;
-                }
-            }
-            var str = '<div class="showhide-tab clearfix" id="imuiw-panel-' + id + '">';
-            for (var i = 0; i < blocks.length; i++) {
-                var block = blocks[i];
-                str += '<div class="block">' +
-                    '<h5>' + block.title + '</h5>' +
-                    '<button class="insert-btn" data-idx='+i+'>插入代码</button>'+
-                    '<div class="subpage-loading"><span class="mui-spinner"></span></div>' +
-                    '<iframe></iframe>' +
-                    '</div>';
-            }
-            str += '</div>';
-            $('#imuiw-panel-tabs').append(str);
-            var iframes = $('#imuiw-panel-' + id + ' iframe');
-            for (var i = 0; i < blocks.length; i++) {
-                var block = blocks[i];
-                var srcPath = extensionBase+'/'+blocks[i].link;
-                iframes[i].src = srcPath;
-                iframes[i].onload = function () {
-                    $(this).parent().find('.subpage-loading').remove();
-                };
-            }
-            $('#imuiw-panel-' + id).find('.insert-btn').click(function(){
-                insertCode(id,parseInt($(this).data('idx')));
-            });
-            initTabCode(id);
-        }
-        $('#imuiw-panel .showhide-tab').css('display', 'none');
-        $('#imuiw-panel-' + id).css('display', 'block');
-    }
- 	AppInit.appReady(function() {
-	    var COMMAND_ID = "muiwidget.insert";  
-	    CommandManager.register(Strings.COMMAND_NAME, COMMAND_ID, panelOpen);	
-        
-		ExtensionUtils.loadStyleSheet(module, "style.css");
-        
-        var btnHolder = $('<div id="imuiw-btn-holder"></div>');
-		var button = $("<a>");	
-		button.attr({
-			title: Strings.COMMAND_NAME,
-			id: "imuiw-btn",
-			href: "#",
-			"class": "disabled"
-		}).click(panelOpen);
-        btnHolder.insertAfter("#toolbar-go-live");
-        btnHolder.html(button);
-        
-        var opts = {Strings: Strings};
-        var html_panel = $(Mustache.render(PanelTemplate, opts));
-        $('.mui-collapse > a', html_panel).click(function(){
-            var $li = $(this).parent();
-            if($li.hasClass('mui-active')){
-                $li.removeClass('mui-active');
-            }else{
-                $('.mui-collapse', html_panel).removeClass('mui-active');
-                $li.addClass('mui-active');
-            }
-        });
-        
-        $('#imuiw-panel-nav a', html_panel).click(function (e) {
-            var tabId = this.hash ? this.hash.replace('#', '') : '';
-            if (tabId != '') {
-                showTab(tabId);
-                $('.mui-table-view-cell > a.active', html_panel).removeClass('active');
-                $(this).addClass('active');
-            }
-        });
-        
-        
-        $(".close", html_panel).click(panelClose);    
-
-        panel = WorkspaceManager.createBottomPanel("InsertMuiWidget", html_panel, 260);
-        
-        showTab('list');
-    });
 });
+$('#imuiw-panel-nav a', html_panel).click(function (e) {
+    var tabId = this.hash ? this.hash.replace('#', '') : '';
+    if (tabId != '') {
+        showTab(tabId);
+        $('.mui-table-view-cell > a.active', html_panel).removeClass('active');
+        $(this).addClass('active');
+    }
+});
+function showTab(id) {
+    if ($('#imuiw-panel-' + id).length == 0) {
+        var blocks;
+        for (var i = 0; i < tabDatas.length; i++) {
+            if (tabDatas[i].id == id) {
+                blocks = tabDatas[i].blocks;
+                break;
+            }
+        }
+        var str = '<div class="showhide-tab clearfix" id="imuiw-panel-' + id + '">';
+        for (var i = 0; i < blocks.length; i++) {
+            var block = blocks[i];
+            str += '<div class="block">' +
+                '<h5>' + block.title + '</h5>' +
+                '<button class="insert-btn" data-idx='+i+'>插入代码</button>'+
+                '<div class="subpage-loading"><span class="mui-spinner"></span></div>' +
+                '<iframe></iframe>' +
+                '</div>';
+        }
+        str += '</div>';
+        $('#imuiw-panel-tabs').append(str);
+        var iframes = $('#imuiw-panel-' + id + ' iframe');
+        for (var i = 0; i < blocks.length; i++) {
+            var block = blocks[i];
+            //var srcPath = extensionBase+'/'+blocks[i].link;
+            var srcPath = blocks[i].link;
+            iframes[i].src = srcPath;
+            iframes[i].onload = function () {
+                $(this).parent().find('.subpage-loading').remove();
+            };
+        }
+        /*$('#imuiw-panel-' + id).find('.insert-btn').click(function(){
+            insertCode(id,parseInt($(this).data('idx')));
+        });
+        initTabCode(id);*/
+    }
+    $('#imuiw-panel .showhide-tab').css('display', 'none');
+    $('#imuiw-panel-' + id).css('display', 'block');
+}
+showTab('page');
